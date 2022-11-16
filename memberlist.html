@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxuryMotors | memberlist</title>
+    <link rel="stylesheet" href="/global.css">
+</head>
+<body>
+    <table class="w3-table-all">
+        <tr>
+            <th>email</th>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>nic</th>
+            <th>city</th>
+            <th>password</th>
+        </tr>
+    </table>
+    <script>
+        const table = document.querySelector('table')
+        const get = async()=>{
+            const res = await fetch('/memberlist.php')
+        const data = await res.json()
+        for( dt of data) {
+            let i = 0;
+            const obj = Object.values(dt);
+            const tr = document.createElement('tr')
+            for (d in dt) {
+                const td = document.createElement('td')
+                td.innerHTML = obj[i]
+                tr.appendChild(td)
+                i++
+            }
+            table.appendChild(tr);
+        }
+    }
+        get()
+    </script>
+</body>
+</html>

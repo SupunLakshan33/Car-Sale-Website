@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxuryMotors | profile</title>
+    <link rel="stylesheet" href="/global.css">
+</head>
+
+<body>
+    <div class="w3-panel">
+        <a href="/">home</a>
+        <h3>profile</h3>
+        <ul id="prof" class="w3-ul w3-border"></ul>
+        <h3>posts</h3>
+        <table class="w3-table-all">
+            <tr>
+                <th>Id</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Conditions</th>
+                <th>Discription</th>
+                <th>Price</th>
+                <th>Email</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        const getprofile = async () => {
+            const res = await fetch('/profile.php')
+            const profile = await res.json();
+            const prof = Object.values(profile)
+            const prof_key = Object.keys(profile)
+            for (i = 0; i < prof.length; i++) {
+                let li = document.createElement('li')
+                li.innerHTML = `${prof_key[i]}:${prof[i]}`;
+                document.getElementById('prof').appendChild(li);
+            }
+        }
+        getprofile()
+        const getpost = async () => {
+            const res = await fetch('/carlist.php')
+            const carlist = await res.json();
+            const tr = document.createElement('tr')
+            for (car of carlist) {
+                const post = Object.values(car)
+                for (p of post) {
+                    const td = document.createElement('td')
+                    td.innerHTML = p
+                    tr.appendChild(td)
+                }
+                document.querySelector('table').appendChild(tr)
+            }
+        }
+        getpost()
+    </script>
+</body>
+
+</html>

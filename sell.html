@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxuryMotors | sell car</title>
+    <link rel="stylesheet" href="/global.css">
+</head>
+<body>
+    <div class="w3-panel">
+        <a href="/">home</a>
+        <form action="/car.php" method="post" enctype="multipart/form-data" class="w3-container">
+            <label for="brand">Brand</label>
+            <input type="text" name="brand" id="brand" required class="w3-input">
+            <br>
+            <label for="model">Model</label>
+            <input type="text" name="model" id="model" required class="w3-input">
+            <br>
+            <label for="condition">Condition</label>
+            <select name="condition" id="condition" class="w3-input">
+                <option aria-readonly="true">choose</option>
+                <option value="new">New</option>
+                <option value="registered">Registered</option>
+                <option value="unregistered">unregistered</option>
+            </select>
+            <br>
+            <label for="price">Price</label>
+            <input type="text" name="price" id="price" required class="w3-input">
+            <br>
+            <textarea name="discription" cols="30" rows="10" placeholder="description.." class="w3-input"></textarea>
+            <br>
+            <label for="image">Image</label>
+            <input type="file" name="photo" id="image" class="w3-input">
+            <br>
+            <label for="email">Enter Your Email</label>
+            <input type="text" id="email" name="email" required class="w3-input">
+            <br>
+            <input type="submit" class="w3-input">
+            <input type="reset" class="w3-input">
+        </form>
+    </div>
+</body>
+</html>
